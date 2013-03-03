@@ -8,6 +8,8 @@ textarea {
 body {
   font-size: 1em;
   line-height: 1.4;
+  background-color: #222;
+  background-image: url("../img/pw_maze_black.png");
 }
 ::-moz-selection {
   background: #b3d4fc;
@@ -91,65 +93,16 @@ textarea {
 .clearfix {
   *zoom: 1;
 }
-@media print {
-  * {
-    background: transparent !important;
-    color: #000 !important;
-    box-shadow: none !important;
-    text-shadow: none !important;
-  }
-  a,
-  a:visited {
-    text-decoration: underline;
-  }
-  a[href]:after {
-    content: " (" attr(href) ")";
-  }
-  abbr[title]:after {
-    content: " (" attr(title) ")";
-  }
-  .ir a:after,
-  a[href^="javascript:"]:after,
-  a[href^="#"]:after {
-    content: "";
-  }
-  pre,
-  blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid;
-  }
-  thead {
-    display: table-header-group;
-  }
-  tr,
-  img {
-    page-break-inside: avoid;
-  }
-  img {
-    max-width: 100% !important;
-  }
-  @page {
-    margin: 0.5cm;
-  }
-  p,
-  h2,
-  h3 {
-    orphans: 3;
-    widows: 3;
-  }
-  h2,
-  h3 {
-    page-break-after: avoid;
-  }
-}
 /* FALCON */
+h1 {
+  color: #800000;
+}
 .iphone {
-  background-image: url("../img/iphone.jpg");
+  background-image: url("../img/iphone.png");
   width: 800px;
   height: 800px;
   background-size: contain;
   background-repeat: no-repeat;
-  margin-top: -100px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -172,4 +125,33 @@ textarea {
   top: -150px;
   position: absolute;
   background-color: rgba(255,0,0,0.5);
+}
+.textcontent {
+  position: absolute;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  top: 150px;
+  width: 400px;
+  left: 700px;
+  padding: 1em;
+}
+.footer {
+  width: 100%;
+  text-align: center;
+  color: rgba(255,255,255,0.2);
+  background-color: rgba(0,0,0,0.2);
+  bottom: 0;
+  position: relative;
+  padding: 1em;
+}
+.logo {
+  width: 100px;
+  height: 100px;
+  background-color: rgba(255,255,255,0.4);
+  float: left;
+  margin: 2em;
+}
+.teaser {
+  padding-top: 1em;
+  clear: both;
 }
