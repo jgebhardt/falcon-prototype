@@ -95,6 +95,11 @@ textarea
 
 /* FALCON */
 
+@font-face
+  font-family: comic_book;
+  src: url(../Comic_Book.ttf);
+
+
 .wordwrap { 
    white-space: pre-wrap;      /* CSS3 */   
    white-space: -moz-pre-wrap; /* Firefox */    
@@ -108,6 +113,17 @@ h1 {
   color: maroon
 }
 
+.vid0
+  position:absolute
+  left:-150px
+  top:-50px
+  -moz-transform:scale(0.5)
+  -webkit-transform:scale(0.5)
+  -o-transform:scale(0.5)
+  -ms-transform:scale(0.5)
+  transform:scale(0.5)
+
+
 .header
   width:800px
   height:100px
@@ -115,39 +131,79 @@ h1 {
   margin-left:auto
   margin-right:auto
   
-.main {
+.main
   width:800px
   height:600px
   background-color:rgba(255, 0,0, 0.5)
   margin-left:auto
   margin-right:auto
-}
 
-.main_frame {
+
+.main_frame 
   position:absolute
   width:800px
   height:600px
   background-color:rgba(0, 255,0, 1)
   overflow: hidden
-}
 
-.left {
+
+.splash
+  position:absolute
+  width:400px
+  height:200px
+  top:200px
+  left:200px
+  background-color:rgba(200, 200,200, 1)
+
+
+.left 
   position:absolute
   width:700px
   height:600px
-  left:-600px
+  left:-700px
   background-color:rgba(0, 100,100, 1)
   overflow: hidden
-}
 
-.right {
+
+.right 
   position:absolute
   width:700px
   height:600px
-  left:700px
+  left:800px
   background-color:rgba(100, 0,100, 1)
   overflow: hidden
-}
+
+
+.text0
+  font-family: comic_book
+  position:absolute
+  top:100px
+  left:100px
+  width:300px
+  height:400px
+  background-color:rgba(10, 40,100, 0.5)
+  
+
+.iphone0
+  position:absolute
+  background-image:url(../img/iphone.png)
+  top:50px
+  left:400px
+  width:400px
+  height:600px
+  background-size:contain
+  background-repeat:no-repeat
+  
+
+.mask0
+  position:absolute
+  top: 120px
+  left: 71px
+  background-color:rgba(255, 0,0, 0.5)
+  width:185px
+  height:278px
+  overflow: hidden
+
 
 
 .text1
@@ -180,37 +236,7 @@ h1 {
   height:278px
   overflow: hidden
 
-
-
-.text0
-  position:absolute
-  top:100px
-  left:300px
-  width:300px
-  height:400px
-  background-color:rgba(10, 40,100, 0.5)
   
-
-.iphone0
-  position:absolute
-  background-image:url(../img/iphone.png)
-  top:50px
-  left:400px
-  width:400px
-  height:600px
-  background-size:contain
-  background-repeat:no-repeat
-  
-
-.mask0
-  position:absolute
-  top: 120px
-  left: 71px
-  background-color:rgba(255, 0,0, 0.5)
-  width:185px
-  height:278px
-  overflow: hidden
-
 .navigator
   width:800px
   height:100px

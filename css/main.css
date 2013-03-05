@@ -94,6 +94,10 @@ textarea {
   *zoom: 1;
 }
 /* FALCON */
+@font-face {
+  font-family: comic_book;
+  src: url("../Comic_Book.ttf");
+}
 .wordwrap {
   white-space: pre-wrap;
 /* CSS3 */
@@ -108,6 +112,16 @@ textarea {
 }
 h1 {
   color: #800000;
+}
+.vid0 {
+  position: absolute;
+  left: -150px;
+  top: -50px;
+  -moz-transform: scale(0.5);
+  -webkit-transform: scale(0.5);
+  -o-transform: scale(0.5);
+  -ms-transform: scale(0.5);
+  transform: scale(0.5);
 }
 .header {
   width: 800px;
@@ -130,11 +144,19 @@ h1 {
   background-color: #0f0;
   overflow: hidden;
 }
+.splash {
+  position: absolute;
+  width: 400px;
+  height: 200px;
+  top: 200px;
+  left: 200px;
+  background-color: #c8c8c8;
+}
 .left {
   position: absolute;
   width: 700px;
   height: 600px;
-  left: -600px;
+  left: -700px;
   background-color: #006464;
   overflow: hidden;
 }
@@ -142,8 +164,36 @@ h1 {
   position: absolute;
   width: 700px;
   height: 600px;
-  left: 700px;
+  left: 800px;
   background-color: #640064;
+  overflow: hidden;
+}
+.text0 {
+  font-family: comic_book;
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  width: 300px;
+  height: 400px;
+  background-color: rgba(10,40,100,0.5);
+}
+.iphone0 {
+  position: absolute;
+  background-image: url("../img/iphone.png");
+  top: 50px;
+  left: 400px;
+  width: 400px;
+  height: 600px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.mask0 {
+  position: absolute;
+  top: 120px;
+  left: 71px;
+  background-color: rgba(255,0,0,0.5);
+  width: 185px;
+  height: 278px;
   overflow: hidden;
 }
 .text1 {
@@ -166,33 +216,6 @@ h1 {
   background-repeat: no-repeat;
 }
 .mask1 {
-  position: absolute;
-  top: 120px;
-  left: 71px;
-  background-color: rgba(255,0,0,0.5);
-  width: 185px;
-  height: 278px;
-  overflow: hidden;
-}
-.text0 {
-  position: absolute;
-  top: 100px;
-  left: 300px;
-  width: 300px;
-  height: 400px;
-  background-color: rgba(10,40,100,0.5);
-}
-.iphone0 {
-  position: absolute;
-  background-image: url("../img/iphone.png");
-  top: 50px;
-  left: 400px;
-  width: 400px;
-  height: 600px;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-.mask0 {
   position: absolute;
   top: 120px;
   left: 71px;
