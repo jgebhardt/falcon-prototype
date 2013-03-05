@@ -155,6 +155,7 @@ h1 {
   background-color: rgba(10,40,100,0.5);
 }
 .iphone1 {
+  visibility: hidden;
   position: absolute;
   background-image: url("../img/iphone.png");
   top: 50px;
@@ -200,82 +201,38 @@ h1 {
   height: 278px;
   overflow: hidden;
 }
-.vid {
-  position: absolute;
+.navigator {
+  width: 800px;
+  height: 100px;
+  background-color: rgba(255,0,255,0.5);
+  margin-left: auto;
+  margin-right: auto;
 }
-.update_panel {
-  width: 100%;
-  height: 270px;
-  top: -260px;
+.navigator_frame {
   position: absolute;
-  background-image: url("../img/screens1_039_03.png");
-  background-size: 100%;
+  width: 800px;
+  height: 100px;
+  overflow: hidden;
+}
+.prev {
+  position: absolute;
+  top: 25px;
+  left: 50px;
+  background-image: url("../img/arrow.png");
+  background-size: contain;
   background-repeat: no-repeat;
-}
-.confirm_panel {
-  visibility: hidden;
-  width: 100%;
-  height: 427px;
-  top: 427px;
-  left: 0px;
-  background-size: 100%;
-  position: absolute;
-}
-.main_panel_shadow {
-  visibility: hidden;
-  opacity: 0;
-  width: 100%;
-  height: 100%;
-  top: 0px;
-  left: 0px;
-  position: absolute;
-  background: #000;
-}
-.main_panel_gadget {
-  width: 100%;
-  height: 500px;
-  top: 0px;
-  left: 0px;
-  position: absolute;
-  background-size: 100%;
-  background-repeat: no-repeat;
-}
-.main_panel_action {
-  width: 100%;
-  height: 427px;
-  top: 427px;
-  left: 0px;
-  position: absolute;
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-image: url("../img/mic_action_sprite_03.png");
-}
-.main_panel {
-  width: 100%;
-  height: 500px;
-  top: 0px;
-  left: 0px;
-  position: absolute;
-  background-size: 100%;
-  background-repeat: no-repeat;
-}
-.textcontent {
-  position: absolute;
-  background: rgba(0,0,0,0.5);
-  color: #fff;
-  top: 150px;
-  width: 400px;
-  left: 700px;
-  padding: 1em;
+  width: 80px;
+  height: 50px;
 }
 .next {
   position: absolute;
+  top: 25px;
+  left: 150px;
   background-image: url("../img/arrow.png");
-  background-size: 100%;
-  top: 570px;
-  left: 700px;
-  width: 100px;
-  height: 70px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 80px;
+  height: 50px;
 }
 .footer {
   width: 100%;

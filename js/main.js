@@ -6,11 +6,8 @@ $(document).on('ready', function(){
 	
 	$('.left').on('click', function(e) {
 		$('.left').animate({left: 0});
-		$('.right').animate({left: 700}, function() {
-			$('.iphone1').show();
-		});
-		
-		$('.iphone1').hide();
+		$('.right').animate({left: 700});
+	
 	});
 	
 	$('.right').on('click', function(e) {
@@ -20,54 +17,74 @@ $(document).on('ready', function(){
 	
 	$('.text0').text("FALCONNN");
 	
-	/*
-	render_page(state);
+	setTimeout(function() {
+		disable_buttons();
+		render_state(state);
+	}, 1000);
+	
+	
+	$('.prev').on('click', function(e){
+		console.log(state);
+		if(state > 0) {
+			state--;
+			render_state(state);
+		} 
+	
+	});
+	
 	
 	$('.next').on('click', function(e){
 		console.log(state);
-		if(state == 5) {
-			//render_page(state);
-		} else {
+		if(state < 9) {
 			state++;
-			render_page(state);
+			render_state(state);
 		}
-	
 	});
 	
-	$('.update_panel').on('click', function(e){
-		if(!update_panel_clicked) {
-			$(this).animate({top: -260});
-			video.pause();
-			update_panel_clicked = true;
-		} else {
-			$(this).animate({top: 0});
-			video.play();
-			update_panel_clicked = false;
-		}	
-	});
 
-	function render_page(state) {
+	function render_state(state) {
 		if(state == 0) {
-			$('.main_panel').css('background-image', 'url("img/mom-cam-son_03.png")');
+			$('.left').animate({left:-300});
+			$('.right').animate({left:400});
 		} else if(state == 1) {
-			$('.main_panel').css('visibility', 'hidden');
-			$('.confirm_panel').css('visibility', "visible");
-			$('.confirm_panel').css('background-image', 'url("img/screens1_03.png")');
-			$('.confirm_panel').animate({top: 0});
+			// hide completely then show
+			$('.left').animate({left:-700}, function() {
+				$('.left').animate({left:0});
+			});
 			
+			$('.right').animate({left:800}, function() {
+				$('.right').animate({left:700});
+			});
+		
 			
 		} else if(state == 2) {
-			$('.main_panel_shadow').css({visibility: "visible"}).animate({opacity: 0.5});
-			$('.main_panel_gadget').css('background-image', 'url("img/icon-mic-trans_03.png")');
-			$('.main_panel_action').css('background-image', 'url("img/mic_action_sprite_03.png")').animate({top: 0});
-		} else if(state == 3) {
+			$('.left').animate({left: -600});
+			$('.right').animate({left: 100});
 		
+		} else if(state == 3) {
+			$('.left').animate({left: 0});
+			$('.right').animate({left: 700});
 		} else if(state == 4) {
+			$('.left').animate({left: -600});
+			$('.right').animate({left: 100});
 		
 		} else if(state == 5) {
-		
+			$('.left').animate({left: 0});
+			$('.right').animate({left: 700});
+		} else if(state == 6) {
+			$('.left').animate({left: -600});
+			$('.right').animate({left: 100});
+		} else if(state == 7) {
+			$('.left').animate({left: 0});
+			$('.right').animate({left: 700});
+		} else if(state == 8) {
+			$('.left').animate({left: -600});
+			$('.right').animate({left: 100});
+		} else if(state == 9) {
+			$('.left').animate({left: 0});
+			$('.right').animate({left: 700});
 		}
-	}*/
+	}
 	
-	
+
 });
