@@ -97,6 +97,41 @@ textarea {
 h1 {
   color: #800000;
 }
+.header {
+  width: 800px;
+  height: 100px;
+  background-color: rgba(0,255,0,0.5);
+  margin-left: auto;
+  margin-right: auto;
+}
+.main {
+  width: 800px;
+  height: 600px;
+  background-color: rgba(255,0,0,0.5);
+  margin-left: auto;
+  margin-right: auto;
+}
+.main_frame {
+  position: absolute;
+  width: 800px;
+  height: 600px;
+  background-color: #0f0;
+  overflow: hidden;
+}
+.left {
+  position: absolute;
+  width: 700px;
+  height: 600px;
+  left: -600px;
+  background-color: #006464;
+}
+.right {
+  position: absolute;
+  width: 700px;
+  height: 600px;
+  left: 700px;
+  background-color: #640064;
+}
 .iphone {
   background-image: url("../img/iphone.png");
   width: 800px;
@@ -114,7 +149,6 @@ h1 {
   height: 427px;
   margin-left: 110px;
   overflow: hidden;
-  position: relative;
 }
 .vid {
   position: absolute;

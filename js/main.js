@@ -4,6 +4,17 @@ $(document).on('ready', function(){
 	var video = $('.vid')[0];
 	var update_panel_clicked = false;
 	
+	$('.left').on('click', function(e) {
+		$('.left').animate({left: 0});
+		$('.right').animate({left: 700});
+	});
+	
+	$('.right').on('click', function(e) {
+		$('.left').animate({left: -600});
+		$('.right').animate({left: 100});
+	});
+	
+	/*
 	render_page(state);
 	
 	$('.next').on('click', function(e){
@@ -50,7 +61,7 @@ $(document).on('ready', function(){
 		} else if(state == 5) {
 		
 		}
-	}
+	}*/
 	
 	
 });
