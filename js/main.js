@@ -6,13 +6,19 @@ $(document).on('ready', function(){
 	
 	$('.left').on('click', function(e) {
 		$('.left').animate({left: 0});
-		$('.right').animate({left: 700});
+		$('.right').animate({left: 700}, function() {
+			$('.iphone1').show();
+		});
+		
+		$('.iphone1').hide();
 	});
 	
 	$('.right').on('click', function(e) {
 		$('.left').animate({left: -600});
 		$('.right').animate({left: 100});
 	});
+	
+	$('.text0').text("FALCONNN");
 	
 	/*
 	render_page(state);

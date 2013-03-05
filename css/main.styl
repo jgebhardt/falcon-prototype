@@ -95,6 +95,15 @@ textarea
 
 /* FALCON */
 
+.wordwrap { 
+   white-space: pre-wrap;      /* CSS3 */   
+   white-space: -moz-pre-wrap; /* Firefox */    
+   white-space: -pre-wrap;     /* Opera <7 */   
+   white-space: -o-pre-wrap;   /* Opera 7 */    
+   word-wrap: break-word;      /* IE */
+}
+
+
 h1 {
   color: maroon
 }
@@ -128,6 +137,7 @@ h1 {
   height:600px
   left:-600px
   background-color:rgba(0, 100,100, 1)
+  overflow: hidden
 }
 
 .right {
@@ -136,27 +146,74 @@ h1 {
   height:600px
   left:700px
   background-color:rgba(100, 0,100, 1)
+  overflow: hidden
 }
 
 
 
-.iphone
+
+
+.text1
+  position:absolute
+  top:100px
+  left:100px
+  width:300px
+  height:400px
+  background-color:rgba(10, 40,100, 0.5)
+  
+
+.iphone1
+  position:absolute
   background-image:url(../img/iphone.png)
-  width:800px
-  height:800px
+  top:50px
+  left:-25px
+  width:400px
+  height:600px
   background-size:contain
   background-repeat:no-repeat
-  margin-left:auto
-  margin-right:auto
+  
 
-.mask
+.mask1
   position:absolute
-  top: 186px
+  top: 120px
+  left: 71px
   background-color:rgba(255, 0,0, 0.5)
-  width:285px
-  height:427px
-  margin-left:110px
+  width:185px
+  height:278px
   overflow: hidden
+
+
+
+.text0
+  position:absolute
+  top:100px
+  left:300px
+  width:300px
+  height:400px
+  background-color:rgba(10, 40,100, 0.5)
+  
+
+.iphone0
+  position:absolute
+  background-image:url(../img/iphone.png)
+  top:50px
+  left:400px
+  width:400px
+  height:600px
+  background-size:contain
+  background-repeat:no-repeat
+  
+
+.mask0
+  position:absolute
+  top: 120px
+  left: 71px
+  background-color:rgba(255, 0,0, 0.5)
+  width:185px
+  height:278px
+  overflow: hidden
+  
+
 
 .vid
   position: absolute
