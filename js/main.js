@@ -11,6 +11,7 @@ $(document).on('ready', function(){
 	initialize();
 	
 	$('.about').on('click', function(e) {
+		vid0.pause();
 		vid1.pause();
 		
 		if(vid_timeout != null)
@@ -21,6 +22,7 @@ $(document).on('ready', function(){
 	});
 	
 	$('.prev').on('click', function(e){
+		vid0.pause();
 		vid1.pause();
 		
 		if(vid_timeout != null)
@@ -31,6 +33,7 @@ $(document).on('ready', function(){
 	});
 	
 	$('.next').on('click', function(e){
+		vid0.pause();
 		vid1.pause();
 		
 		if(vid_timeout != null) {
@@ -43,6 +46,7 @@ $(document).on('ready', function(){
 	});
 	
 	$('.play').on('click', function(e) {
+		vid0.pause();
 		vid1.pause();
 		
 		if(vid_timeout != null)
@@ -60,7 +64,7 @@ $(document).on('ready', function(){
 			console.log("interval");
 			interval = setInterval(function() {
 				next_state();
-			}, 1000);
+			}, 6000);
 		}
 	});
 	
@@ -98,10 +102,10 @@ $(document).on('ready', function(){
 	disable_buttons();
 	
 	setTimeout(function() {
-		$('.splash').fadeOut(1000,  function() {
+		$('.splash').animate({top:0},  function() {
 			render_state();
 		});
-	}, 1000);
+	}, 2000);
 	
 	
 	
@@ -116,7 +120,7 @@ $(document).on('ready', function(){
 		
 			$('.image0')
 				.attr('src', 'img/screen-0a.png')
-				.css({top: 120});
+				.css({top: 115});
 			
 			
 			$('.image0').animate({left: $(window).width()/2 - 500}, function() {enable_buttons();});
@@ -124,12 +128,12 @@ $(document).on('ready', function(){
 		} else if(state == 1) {
 			$('.image0')
 				.attr('src', 'img/screen-0a.png')
-				.css({top: 120});
+				.css({top: 115});
 				
 			
 			$('.image1')
 				.attr('src', 'img/screen-0b.png')
-				.css({top: 120});
+				.css({top: 115});
 			
 			$('.image0').animate({left: $(window).width()/2 - 500}, function() {enable_buttons();});
 			$('.image1').animate({left:$(window).width()/2}, function() {enable_buttons();});
@@ -144,9 +148,9 @@ $(document).on('ready', function(){
 				function() {
 					$('.image0')
 						.attr('src', 'img/screen-1.png')
-						.css({top: 150});
+						.css({top: 115});
 				
-					$('.iphone0').animate({left: $(window).width()/2 - 500}, function() { enable_buttons();});
+					$('.iphone0').animate({left: $(window).width()/2 - 500}, function() { enable_buttons(); playVideo(vid0, 0,1600);});
 					$('.image0').animate({left: $(window).width()/2 - 150 }, function() { enable_buttons();});
 				}
 			);
@@ -160,7 +164,7 @@ $(document).on('ready', function(){
 			
 				$('.image1')
 						.attr('src', 'img/screen-2.png')
-						.css({top: 150});
+						.css({top: 115});
 			
 				$('.iphone1').animate({left: $(window).width()/2 + 150}, function() {enable_buttons(); playVideo(vid1, 0,5000);});
 				$('.image1').animate({left: $(window).width()/2 - 450}, function() {enable_buttons();});
@@ -174,9 +178,9 @@ $(document).on('ready', function(){
 			
 				$('.image0')
 					.attr('src', 'img/screen-3.png')
-					.css({top: 150});
+					.css({top: 115});
 					
-				$('.iphone0').animate({left: $(window).width()/2 - 500}, function() { enable_buttons();});
+				$('.iphone0').animate({left: $(window).width()/2 - 500}, function() { enable_buttons(); playVideo(vid0, 3000,6000);});
 				$('.image0').animate({left: $(window).width()/2 -150}, function() { enable_buttons();});			
 			
 			});
@@ -187,7 +191,7 @@ $(document).on('ready', function(){
 			
 				$('.image1')
 					.attr('src', 'img/screen-4.png')
-					.css({top: 150});
+					.css({top: 115});
 			
 				$('.iphone1').animate({left: $(window).width()/2 + 150}, function() {enable_buttons(); playVideo(vid1, 5600,10700);});
 				$('.image1').animate({left: $(window).width()/2 - 450}, function() {enable_buttons();});
@@ -200,9 +204,9 @@ $(document).on('ready', function(){
 			
 					$('.image0')
 						.attr('src', 'img/screen-5.png')
-						.css({top: 150});
+						.css({top: 115});
 						
-				$('.iphone0').animate({left: $(window).width()/2 - 500}, function() { enable_buttons();});
+				$('.iphone0').animate({left: $(window).width()/2 - 500}, function() { enable_buttons(); playVideo(vid0, 6000,15500); });
 				$('.image0').animate({left: $(window).width()/2 -150}, function() { enable_buttons();});		
 			});
 		
@@ -211,9 +215,9 @@ $(document).on('ready', function(){
 			$('.image0').animate({left: -700}, function() { 
 				$('.image0')
 					.attr('src', 'img/screen-6.png')
-					.css({top: 150});
+					.css({top: 115});
 		
-				$('.image0').animate({left: $(window).width()/2 -150}, function() { enable_buttons();});		
+				$('.image0').animate({left: $(window).width()/2 -150}, function() { enable_buttons(); playVideo(vid0, 15500,29000);});		
 			});
 			
 		} else if(state == 8) {
@@ -221,9 +225,9 @@ $(document).on('ready', function(){
 			$('.image0').animate({left: -700}, function() {
 				$('.image1')
 					.attr('src', 'img/screen-7.png')
-					.css({top: 150});
+					.css({top: 115});
 			
-				$('.iphone1').animate({left: $(window).width()/2 + 150}, function() {enable_buttons(); playVideo(vid1, 10800,15000);});
+				$('.iphone1').animate({left: $(window).width()/2 + 150}, function() {enable_buttons(); playVideo(vid1, 10800,14600);});
 				$('.image1').animate({left: $(window).width()/2 - 450 }, function() {enable_buttons();});
 			
 			});
@@ -234,7 +238,7 @@ $(document).on('ready', function(){
 			$('.iphone1').animate({left: $(window).width() + 150}, function() { 
 				$('.image0')
 					.attr('src', 'img/screen-8.png')
-					.css({top: 150});
+					.css({top: 115});
 			
 				$('.image0').animate({left: $(window).width()/2 - 450 }, function() { enable_buttons();});
 			});
@@ -244,7 +248,7 @@ $(document).on('ready', function(){
 			$('.image0').animate({left: -900}, function() {
 				$('.image1')
 					.attr('src', 'img/screen-9.png')
-					.css({top: 150});
+					.css({top: 115});
 					
 				$('.image1').animate({left: $(window).width()/2 - 450 }, function() {enable_buttons();});
 			});
@@ -295,7 +299,7 @@ $(document).on('ready', function(){
 		$('.main').css({width: $(window).width()});
 		$('.image1').css({left: $(window).width()});
 		$('.iphone1').css({left: $(window).width()-100});
-		$('.splash').css({left: $(window).width()/2 - 120});
+		$('.splash').css({left: $(window).width()/2 - 160});
 		
 		
 	}
