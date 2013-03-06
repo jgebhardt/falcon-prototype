@@ -1,25 +1,56 @@
 
 $(document).on('ready', function(){
+	var window_width;
+	var gap;
 	var state = 0;
 	var interval = null;
+	var vid_timeout = null;
 	var vid0 = $('.vid0')[0];
+	var vid1 = $('.vid1')[0]
+	
+	initialize();
 	
 	$('.about').on('click', function(e) {
+		vid1.pause();
+		
+		if(vid_timeout != null)
+			clearTimeout(vid_timeout);
+		
 		$('.main_page').hide();
 		$('.about_page').show();
 	});
 	
 	$('.prev').on('click', function(e){
+		vid1.pause();
+		
+		if(vid_timeout != null)
+			clearTimeout(vid_timeout);
+			
 		clear_interval();
 		prev_state();
 	});
 	
 	$('.next').on('click', function(e){
+		vid1.pause();
+		
+		if(vid_timeout != null) {
+			console.log("Timeout removed");
+			clearTimeout(vid_timeout);
+		}
+			
 		clear_interval();
 		next_state();
 	});
 	
 	$('.play').on('click', function(e) {
+		vid1.pause();
+		
+		if(vid_timeout != null)
+			clearTimeout(vid_timeout);
+		
+		$('.play').hide();
+		$('.pause').show();
+	
 		if(state == 10) {
 			state = 0;
 			render_state();
@@ -28,13 +59,15 @@ $(document).on('ready', function(){
 		if(interval == null) {
 			console.log("interval");
 			interval = setInterval(function() {
-				console.log("ha");
 				next_state();
 			}, 1000);
 		}
 	});
 	
 	$('.pause').on('click', function(e) {
+		$('.pause').hide();
+		$('.play').show();
+	
 		clear_interval();
 	});
 	
@@ -80,85 +113,142 @@ $(document).on('ready', function(){
 		if(state == 0) {
 			$('.bottom').animate({top: 600});
 		
-			$('.iphone0').hide();
-			$('.iphone1').hide();
 		
-			$('.left').animate({left:-450}, function() {enable_buttons();});
-			$('.right').animate({left:1000});
+			$('.image0')
+				.attr('src', 'img/screen-0a.png')
+				.css({top: 120});
+			
+			
+			$('.image0').animate({left: $(window).width()/2 - 500}, function() {enable_buttons();});
+			$('.image1').animate({left:$(window).width()});
 		} else if(state == 1) {
-			$('.iphone0').hide();
-			$('.iphone1').hide();
+			$('.image0')
+				.attr('src', 'img/screen-0a.png')
+				.css({top: 120});
+				
 			
-			$('.left').animate({left:-450}, function() {enable_buttons();});
-			$('.right').animate({left:500}, function() {enable_buttons();});
-		
-		
+			$('.image1')
+				.attr('src', 'img/screen-0b.png')
+				.css({top: 120});
 			
+			$('.image0').animate({left: $(window).width()/2 - 500}, function() {enable_buttons();});
+			$('.image1').animate({left:$(window).width()/2}, function() {enable_buttons();});
+		
+			$('.iphone0').animate({left: -280});
+			$('.iphone1').animate({left: $(window).width()-100});
+		
 		} else if(state == 2) {
-		
-			// hide completely then show
-			$('.left').animate({left:-950}, 
+			
+			
+			$('.image0').animate({left:-700}, 
 				function() {
-					$('.iphone0').show();
-					$('.left').animate({left:-900}, function() { enable_buttons();});
+					$('.image0')
+						.attr('src', 'img/screen-1.png')
+						.css({top: 150});
+				
+					$('.iphone0').animate({left: $(window).width()/2 - 500}, function() { enable_buttons();});
+					$('.image0').animate({left: $(window).width()/2 - 150 }, function() { enable_buttons();});
 				}
 			);
 			
-			$('.right').animate({left:1000}, 
-				function() {
-					$('.iphone1').show();
-					$('.right').animate({left:50}, function() {enable_buttons();});
-			});
+			$('.image1').animate({left:$(window).width()});
+			$('.iphone1').animate({left:$(window).width() - 100}, function() { enable_buttons();});
 		
 		} else if(state == 3) {
-		
-			$('.left').animate({left: 0}, function() {enable_buttons(); playVideo(2,4);});
-			$('.right').animate({left: 950}, function() {enable_buttons();});
+			$('.iphone0').animate({left: -280});
+			$('.image0').animate({left: -700}, function() { 
+			
+				$('.image1')
+						.attr('src', 'img/screen-2.png')
+						.css({top: 150});
+			
+				$('.iphone1').animate({left: $(window).width()/2 + 150}, function() {enable_buttons(); playVideo(vid1, 0,5000);});
+				$('.image1').animate({left: $(window).width()/2 - 450}, function() {enable_buttons();});
+			
+			});
 		
 			
 		} else if(state == 4) {
-			$('.left').animate({left: -900}, function() {enable_buttons();});
-			$('.right').animate({left: 50}, function() {enable_buttons();});
-		
-		
+			$('.image1').animate({left:$(window).width()});
+			$('.iphone1').animate({left:$(window).width() - 100}, function() { 
+			
+				$('.image0')
+					.attr('src', 'img/screen-3.png')
+					.css({top: 150});
+					
+				$('.iphone0').animate({left: $(window).width()/2 - 500}, function() { enable_buttons();});
+				$('.image0').animate({left: $(window).width()/2 -150}, function() { enable_buttons();});			
+			
+			});
 			
 		} else if(state == 5) {
-			$('.left').animate({left: 0}, function() {enable_buttons(); playVideo(2,4);});
-			$('.right').animate({left: 950}, function() {enable_buttons();});
-		
+			$('.iphone0').animate({left: -280});
+			$('.image0').animate({left: -700}, function() { 
+			
+				$('.image1')
+					.attr('src', 'img/screen-4.png')
+					.css({top: 150});
+			
+				$('.iphone1').animate({left: $(window).width()/2 + 150}, function() {enable_buttons(); playVideo(vid1, 5600,10700);});
+				$('.image1').animate({left: $(window).width()/2 - 450}, function() {enable_buttons();});
+			
+			});
 		
 		} else if(state == 6) {
-			$('.left').animate({left: -900}, function() {enable_buttons();});
-			$('.right').animate({left: 50}, function() {enable_buttons();});
+			$('.image1').animate({left:$(window).width()});
+			$('.iphone1').animate({left:$(window).width() - 100}, function() { 
+			
+					$('.image0')
+						.attr('src', 'img/screen-5.png')
+						.css({top: 150});
+						
+				$('.iphone0').animate({left: $(window).width()/2 - 500}, function() { enable_buttons();});
+				$('.image0').animate({left: $(window).width()/2 -150}, function() { enable_buttons();});		
+			});
 		
+			$('.image0').animate({left: -700});		
 		} else if(state == 7) {
-			$('.left').animate({left: -900});
-			$('.right').animate({left:1000}, 
-				function() {
-					$('.right').animate({left:50}, function() {enable_buttons();});
+			$('.image0').animate({left: -700}, function() { 
+				$('.image0')
+					.attr('src', 'img/screen-6.png')
+					.css({top: 150});
+		
+				$('.image0').animate({left: $(window).width()/2 -150}, function() { enable_buttons();});		
 			});
 			
 		} else if(state == 8) {
-		
-			$('.top').animate({top: -600});
+			$('.iphone0').animate({left: -280});
+			$('.image0').animate({left: -700}, function() {
+				$('.image1')
+					.attr('src', 'img/screen-7.png')
+					.css({top: 150});
 			
-			$('.left').animate({top: 0, left: 0}, function() {enable_buttons();});
-			$('.right').animate({top: 0, left: 950}, function() {enable_buttons();});
-		
+				$('.iphone1').animate({left: $(window).width()/2 + 150}, function() {enable_buttons(); playVideo(vid1, 10800,15000);});
+				$('.image1').animate({left: $(window).width()/2 - 450 }, function() {enable_buttons();});
+			
+			});
 			
 			
 		} else if(state == 9) {
-			$('.left').animate({top: 600, left:-950});
-			$('.right').animate({top: 600, left:1000});
+			$('.image1').animate({left: $(window).width()});
+			$('.iphone1').animate({left: $(window).width() + 150}, function() { 
+				$('.image0')
+					.attr('src', 'img/screen-8.png')
+					.css({top: 150});
+			
+				$('.image0').animate({left: $(window).width()/2 - 450 }, function() { enable_buttons();});
+			});
 		
-			$('.top').animate({top: 0}, function() { enable_buttons(); });
-			$('.bottom').animate({top: 600}, function() { enable_buttons(); });
+			
 		} else if(state == 10) {
-			$('.left').animate({top: 0});
-			$('.right').animate({top: 0});
-		
-			$('.top').animate({top: -600}, function() { enable_buttons(); });
-			$('.bottom').animate({top: 0}, function() { enable_buttons(); });
+			$('.image0').animate({left: -900}, function() {
+				$('.image1')
+					.attr('src', 'img/screen-9.png')
+					.css({top: 150});
+					
+				$('.image1').animate({left: $(window).width()/2 - 450 }, function() {enable_buttons();});
+			});
+
 		}
 	}
 	
@@ -181,15 +271,32 @@ $(document).on('ready', function(){
 		$('.pause').css('pointer-events', 'auto');
 	}
 
-	function playVideo(start, end) {
-		var duration = (end - start) * 1000;
+	function playVideo(vid, start, end) {
+	
+		var duration = end - start;
 
-		vid0.currentTitme = start;
-		vid0.play();
+		vid.currentTime = start / 1000;
+		vid.play();
 		
-		setTimeout(function() {
-			vid0.pause();
+		
+		vid_timeout = setTimeout(function() {
+			vid.pause();
 		}, duration);
 	}
 	
+	$(window).resize(function() {
+		window_width = $(window).width();
+		console.log(window_width);
+		
+		initialize();
+	});
+	
+	function initialize() {
+		$('.main').css({width: $(window).width()});
+		$('.image1').css({left: $(window).width()});
+		$('.iphone1').css({left: $(window).width()-100});
+		$('.splash').css({left: $(window).width()/2 - 120});
+		
+		
+	}
 });
