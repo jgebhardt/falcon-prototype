@@ -9,7 +9,7 @@ body {
   font-size: 1em;
   line-height: 1.4;
   background-color: #222;
-  background-image: url("../img/pw_maze_black.png");
+  background-image: url("../img/background-bw.jpg");
 }
 ::-moz-selection {
   background: #b3d4fc;
@@ -124,14 +124,14 @@ h1 {
   transform: scale(0.5);
 }
 .header {
-  width: 800px;
+  width: 1000px;
   height: 100px;
   background-color: rgba(0,255,0,0.5);
   margin-left: auto;
   margin-right: auto;
 }
 .main {
-  width: 800px;
+  width: 1000px;
   height: 600px;
   background-color: rgba(255,0,0,0.5);
   margin-left: auto;
@@ -139,32 +139,31 @@ h1 {
 }
 .main_frame {
   position: absolute;
-  width: 800px;
+  width: 1000px;
   height: 600px;
   background-color: #0f0;
   overflow: hidden;
 }
 .splash {
   position: absolute;
-  width: 400px;
-  height: 200px;
-  top: 200px;
-  left: 200px;
-  background-color: #c8c8c8;
+  width: 240px;
+  height: 120px;
+  top: 240px;
+  left: 380px;
 }
 .left {
   position: absolute;
-  width: 700px;
+  width: 950px;
   height: 600px;
-  left: -700px;
+  left: -950px;
   background-color: #006464;
   overflow: hidden;
 }
 .right {
   position: absolute;
-  width: 700px;
+  width: 950px;
   height: 600px;
-  left: 800px;
+  left: 1000px;
   background-color: #640064;
   overflow: hidden;
 }
@@ -177,12 +176,30 @@ h1 {
   height: 400px;
   background-color: rgba(10,40,100,0.5);
 }
+.text1 {
+  position: absolute;
+  top: 100px;
+  left: 500px;
+  width: 300px;
+  height: 400px;
+  background-color: rgba(10,40,100,0.5);
+}
 .iphone0 {
   position: absolute;
-  background-image: url("../img/iphone.png");
-  top: 50px;
-  left: 400px;
-  width: 400px;
+  background-image: url("../img/iphone-mask.png");
+  top: 0px;
+  left: 620px;
+  width: 380px;
+  height: 600px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.iphone1 {
+  position: absolute;
+  background-image: url("../img/iphone-mask-white.png");
+  top: 0px;
+  left: -45px;
+  width: 380px;
   height: 600px;
   background-size: contain;
   background-repeat: no-repeat;
@@ -196,25 +213,6 @@ h1 {
   height: 278px;
   overflow: hidden;
 }
-.text1 {
-  position: absolute;
-  top: 100px;
-  left: 100px;
-  width: 300px;
-  height: 400px;
-  background-color: rgba(10,40,100,0.5);
-}
-.iphone1 {
-  visibility: hidden;
-  position: absolute;
-  background-image: url("../img/iphone.png");
-  top: 50px;
-  left: -25px;
-  width: 400px;
-  height: 600px;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
 .mask1 {
   position: absolute;
   top: 120px;
@@ -224,8 +222,24 @@ h1 {
   height: 278px;
   overflow: hidden;
 }
+.top {
+  position: absolute;
+  width: 1000px;
+  height: 600px;
+  top: -600px;
+  background-color: #f36464;
+  overflow: hidden;
+}
+.bottom {
+  position: absolute;
+  width: 1000px;
+  height: 600px;
+  top: 600px;
+  background-color: #00e964;
+  overflow: hidden;
+}
 .navigator {
-  width: 800px;
+  width: 1000px;
   height: 100px;
   background-color: rgba(255,0,255,0.5);
   margin-left: auto;
@@ -233,29 +247,46 @@ h1 {
 }
 .navigator_frame {
   position: absolute;
-  width: 800px;
+  width: 1000px;
   height: 100px;
   overflow: hidden;
 }
 .prev {
   position: absolute;
-  top: 25px;
-  left: 50px;
-  background-image: url("../img/arrow.png");
-  background-size: contain;
-  background-repeat: no-repeat;
   width: 80px;
-  height: 50px;
+  height: 80px;
+  top: 10px;
+  left: 10px;
+}
+.play {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  top: 10px;
+  left: 100px;
+}
+.pause {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  top: 10px;
+  left: 190px;
 }
 .next {
   position: absolute;
-  top: 25px;
-  left: 150px;
-  background-image: url("../img/arrow.png");
-  background-size: contain;
-  background-repeat: no-repeat;
   width: 80px;
-  height: 50px;
+  height: 80px;
+  top: 10px;
+  left: 280px;
+}
+.about_page {
+  display: none;
+}
+.main_about {
+  width: 1000px;
+  background-color: rgba(255,0,0,0.5);
+  margin-left: auto;
+  margin-right: auto;
 }
 .footer {
   width: 100%;
@@ -272,6 +303,21 @@ h1 {
   background-color: rgba(255,255,255,0.4);
   float: left;
   margin: 2em;
+}
+.about {
+  width: 100px;
+  height: 50px;
+}
+.heading {
+  font-size: 20pt;
+  padding-top: 30px;
+  padding-left: 50px;
+}
+.content {
+  font-size: 15pt;
+  padding-top: 20px;
+  padding-left: 100px;
+  padding-right: 100px;
 }
 .teaser {
   padding-top: 1em;
